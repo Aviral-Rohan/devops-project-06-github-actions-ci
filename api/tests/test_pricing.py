@@ -47,3 +47,7 @@ def test_quote_free_delivery_from_500_after_discount():
 def test_free_delivery_threshold_uses_amount_after_discount():
     q = quote([{"id": "cold-brew", "qty": 3}], "FIRST20")   # 570 - 114 = 456, below 500
     assert q["delivery"] == 40
+
+
+def test_monsoon_coupon():
+    assert discount(400, "MONSOON15") == 60

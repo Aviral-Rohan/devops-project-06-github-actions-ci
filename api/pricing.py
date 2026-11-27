@@ -8,7 +8,7 @@ MENU = {
     "mocha": {"name": "Mocha", "price": 210},
 }
 
-COUPONS = {"BREW10": 10, "FIRST20": 20}   # percent off
+COUPONS = {"BREW10": 10, "FIRST20": 20, "MONSOON15": 15}   # percent off
 GST_PERCENT = 5
 FREE_DELIVERY_FROM = 500                   # subtotal after discount
 DELIVERY_FEE = 40
