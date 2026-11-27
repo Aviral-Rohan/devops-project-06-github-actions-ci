@@ -45,6 +45,6 @@ def quote(items, coupon=None):
     sub = subtotal(items)
     off = discount(sub, coupon)
     after = sub - off
-    delivery = 0 if sub >= FREE_DELIVERY_FROM else DELIVERY_FEE   # simpler: use the subtotal
+    delivery = 0 if after >= FREE_DELIVERY_FROM else DELIVERY_FEE
     gst = round(after * GST_PERCENT / 100)
     return {"subtotal": sub, "discount": off, "delivery": delivery, "gst": gst, "total": after + delivery + gst}
