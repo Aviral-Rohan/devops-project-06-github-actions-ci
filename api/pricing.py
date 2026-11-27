@@ -8,7 +8,7 @@ MENU = {
     "mocha": {"name": "Mocha", "price": 210},
 }
 
-COUPONS = {"BREW10": 10, "FIRST20": 20}   # percent off
+COUPONS = {"BREW10": 10, "FIRST20": 20, "MONSOON15": 15}   # percent off
 GST_PERCENT = 5
 FREE_DELIVERY_FROM = 500                   # subtotal after discount
 DELIVERY_FEE = 40
@@ -45,6 +45,6 @@ def quote(items, coupon=None):
     sub = subtotal(items)
     off = discount(sub, coupon)
     after = sub - off
-    delivery = 0 if after >= FREE_DELIVERY_FROM else DELIVERY_FEE
+    delivery = 0 if sub >= FREE_DELIVERY_FROM else DELIVERY_FEE   # simpler: use the subtotal
     gst = round(after * GST_PERCENT / 100)
     return {"subtotal": sub, "discount": off, "delivery": delivery, "gst": gst, "total": after + delivery + gst}
